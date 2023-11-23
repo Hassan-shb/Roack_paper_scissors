@@ -2,6 +2,8 @@ const buttons = document.querySelectorAll(".button");
 const gameResult = document.querySelector(".game");
 let playerResult = document.querySelector(".player_result");
 let computerResult = document.querySelector(".computer_result");
+let playerChoice = document.querySelector(".player_choice");
+let computerChoice = document.querySelector(".computer_choice");
 
 buttons.forEach((item) => {
     item.addEventListener('click', (e) => {
@@ -13,43 +15,74 @@ buttons.forEach((item) => {
 function getComputerChoice(){
     let choice = Math.floor(Math.random() * 3);
     if(choice === 0){
-        return "Rock"
+        return "✊🏻";
     }else if(choice === 1){
-        return "Paper"
+        return "🖐🏻";
     }else{
-        return "Scissors"
+        return "✌🏻";
     }
 }
 
 
 let playerSelection = 'rock';
-let computerSelection = 'rock'; 
+let computerSelection = 'rock';
+let player = 0;
+let computer = 0; 
 
 function playRound(playerSelection, computerSelection){
     console.log(playerSelection, computerSelection);
-    if(playerSelection === 'rock' && computerSelection === 'paper' || playerSelection === 'paper' && computerSelection === 'scissors' || playerSelection === 'scissors' && computerSelection === 'rock'){ 
+    if(playerSelection === '✊🏻' && computerSelection === '🖐🏻' || playerSelection === '🖐🏻' && computerSelection === '✌🏻' || playerSelection === '✌🏻' && computerSelection === '✊🏻'){ 
+        playerChoice.textContent = playerSelection;
+        computerChoice.textContent = computerSelection;
         gameResult.textContent = `You lose! ${computerSelection} beats ${playerSelection}`;
-        playerResult.textContent = `Player - ${playerSelection}`;
-        computerResult.textContent = `Computer - ${computerSelection}`;
+        ++computer;
+        playerResult.textContent = `${player}`;
+        computerResult.textContent = `${computer}`;
+        
+        
         return `You lose! ${computerSelection} beats ${playerSelection}`;
-    }else if(playerSelection === 'rock' && computerSelection === 'scissors' || playerSelection === 'paper' && computerSelection === 'rock' || playerSelection === 'scissors' && computerSelection === 'paper'){
+    }else if(playerSelection === '✊🏻' && computerSelection === '✌🏻' || playerSelection === '🖐🏻' && computerSelection === '✊🏻' || playerSelection === '✌🏻' && computerSelection === '🖐🏻'){
+        playerChoice.textContent = playerSelection;
+        computerChoice.textContent = computerSelection;
         gameResult.textContent = `You win! ${playerSelection} beats ${computerSelection}`;
-        playerResult.textContent = `Player - ${playerSelection}`;
-        computerResult.textContent = `Computer - ${computerSelection}`;
+        ++player;
+        playerResult.textContent = ` ${player}`;
+        computerResult.textContent = `${computer}`;
+        
         return `You win! ${playerSelection} beats ${computerSelection}`;
     }else{
+        playerChoice.textContent = playerSelection;
+        computerChoice.textContent = computerSelection;
         gameResult.textContent = "Draw!";
-        playerResult.textContent = `Player - ${playerSelection}`;
-        computerResult.textContent = `Computer - ${computerSelection}`;
+        playerResult.textContent = `${player}`;
+        computerResult.textContent = `${computer}`;
         return "Draw!";
     }
 }
 
 
+
 function game(){
-        playerSelection = playerSelection.toLowerCase();
-        computerSelection = getComputerChoice().toLowerCase();
-        console.log(playRound(playerSelection, computerSelection));
+    playerSelection = playerSelection.toLowerCase();
+    computerSelection = getComputerChoice().toLowerCase();
+    playRound(playerSelection, computerSelection);
+
+    if(player === 5){
+        gameResult.textContent = `You won ${player} games. So you are the winner.`;
+        buttons.forEach((item) => {
+            item.disabled = true;
+        });
+
+    }else if(computer === 5){
+        gameResult.textContent = `Computer won ${computer} games. So Computer is the winner.`;
+        buttons.forEach((item) => {
+            item.disabled = true;
+        });
+        
+    }
+    
+    
+      
 }
 
 

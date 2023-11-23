@@ -4,46 +4,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <style>
-        .buttons{
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        .results{
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            height: 200px;
-            font-size: 20px;
-            align-items: center;
-            flex-direction: column;
-        }
-        .result_container{
-            height: 80px;
-            display: flex;
-            flex-direction: row;
-            gap: 200px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.cdnfonts.com/css/humanoid" rel="stylesheet">
+    
+    
 </head>
 <body>
-    <div class="results">
-        <div class="result_container">
-            <div class="player_result">
-                Player - 
+    <!-- player_result for player - 
+        computer result for computer - 
+        game for the result goes here 
+        
+        
+        button for Rock paper and scissors buttons -->
+        <!-- <div class="results">
+            <div class="result_container">
+                <div class="player_result">
+                    Player - 
+                </div>
+                <div class="computer_result">
+                    Computer - 
+                </div>
             </div>
-            <div class="computer_result">
-                Computer - 
-            </div>
+            <div class="game">The results goes here.</div>
         </div>
-        <div class="game">The results goes here.</div>
+        <div class="buttons">
+            <button class="button">Rock</button>
+            <button class="button">Paper</button>
+            <button class="button">Scissors</button>
+        </div>
+    -->
+    
+    
+    <div class="main_container">
+        <div class="container">
+            <div class="text-wrapper">
+                <h1 class="title">Rock Paper Scissors!</h1>
+            </div>
+            
+            <div class="game_container">
+                <div class="choices_section">
+                    <div class="content_wrapper">
+                        <div class="player_section">
+                            <span class="score player_choice">?</span>
+                        </div>
+                        <div class="player_title">
+                            <span class="player_title_text">Player Selection</span>
+                        </div>
+                    </div>
+                    <div class="content_wrapper">
+                        <div class="computer_section">
+                            <span class="score computer_choice">?</span>
+                        </div>
+                        <div class="computer_title">
+                            <span class="computer_title_text">Computer Selection</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="score_section">
+                    <div class="score_wrapper">
+                        <div class="player_score_section">
+                            <span class="player_score_board player_result">0</span>
+                        </div>
+                        <div class="score_title">
+                            <span class="score_text">Player Score</span>
+                        </div>
+                    </div>
+                    <div class="score_wrapper">
+                        <div class="computer_score_section">
+                            <span class="computer_score_board computer_result">0</span>
+                        </div>
+                        <div class="score_title">
+                            <span class="score_text">Computer Score</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="win_lose_container">
+                    <span class="win_lose_text game">You won 5 games and you are the winner!</span>
+                </div>
+                <div class="win_lose_container">
+                    <span class="win_lose_text">Choose your Weapon!</span>
+                </div>
+                <div class="rps-container">
+                    <button class="rock button">
+                        <span class="rps">✊🏻</span>
+                    </button>
+                    <button class="paper button">
+                        <span class="rps">🖐🏻</span>
+                    </button>
+                    <button class="scissors button">
+                        <span class="rps">✌🏻</span>
+                    </button>
+                </div>
+            </div>
+            
+            
+        </div>
     </div>
-    <div class="buttons">
-        <button class="button">Rock</button>
-        <button class="button">Paper</button>
-        <button class="button">Scissors</button>
-    </div>
+    
+    
     
     
     
